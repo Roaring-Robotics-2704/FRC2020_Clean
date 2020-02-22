@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.Servo;
 import frc.robot.RobotMap;
-import frc.robot.Robot;
+//import frc.robot.Robot;
 
 public class Arm extends Subsystem {
   //Create encoder and related variables

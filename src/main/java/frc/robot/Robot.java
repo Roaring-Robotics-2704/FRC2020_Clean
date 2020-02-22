@@ -23,12 +23,9 @@ import frc.robot.commands.*;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static DriveTrain driveTrain = new DriveTrain();
-  public static Arm arm = new Arm();
-  public static DriveAcrossLine driveAcrossLine = new DriveAcrossLine();
   public static OI oi;
-  public static Camera camera;
-
+  public static Arm arm = new Arm();
+  
   Command autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -39,7 +36,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    camera = new Camera();
     //chooser.addDefault("Default Auto", new DriveAcrossLine());
   }
 
@@ -53,8 +49,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    SmartDashboard.putNumber("Drive Train Encoder Distance", driveTrain.driveEncoder.getDistance());
-    SmartDashboard.putNumber("Arm Encoder Distance", arm.armEncoder.getDistance());
   }
 
   /**

@@ -8,9 +8,9 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import com.ctre.phoenix.motorcontrol.ControlMode;
+//import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.Robot;
-import edu.wpi.first.wpilibj.command.Command;
+//import edu.wpi.first.wpilibj.command.Command;
 
 public class DownArm extends Command {
   public DownArm() {
@@ -20,33 +20,30 @@ public class DownArm extends Command {
   }
 
   // Called just before this Command runs the first time
-  @Override
-  protected void initialize() {
-  }
-
-  // Called repeatedly when this Command is scheduled to run
-  @Override
-  protected void execute() {
-    if (Math.abs(Robot.arm.armEncoder.getDistance()) > 200 ) {
-      Robot.arm.liftMotor.set(ControlMode.PercentOutput, 80);
-    }else {
-      Robot.arm.liftMotor.set(ControlMode.PercentOutput, 0);
-  }
- }
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
-    return false;
-  }
-
-  // Called once after isFinished returns true
-  @Override
-  protected void end() {
-  }
-
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  @Override
-  protected void interrupted() {
-  }
+    // Called just before this Command runs the first time
+    @Override
+    protected void initialize() {
+    }
+  
+    // Called repeatedly when this Command is scheduled to run
+    @Override
+    protected void execute() {
+    }
+  
+    // Make this return true when this Command no longer needs to run execute()
+    @Override
+    protected boolean isFinished() {
+      return false;
+    }
+  
+    // Called once after isFinished returns true
+    @Override
+    protected void end() {
+    }
+  
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    @Override
+    protected void interrupted() {
+    }
 }

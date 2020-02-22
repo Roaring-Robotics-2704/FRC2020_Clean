@@ -26,11 +26,6 @@ public class UpArm extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   if (Math.abs(Robot.arm.armEncoder.getDistance()) < 200 ) {
-    Robot.arm.liftMotor.set(ControlMode.PercentOutput, 80);
-  }else {
-    Robot.arm.liftMotor.set(ControlMode.PercentOutput, 0);
-  } 
   }
 
   // Make this return true when this Command no longer needs to run execute()
