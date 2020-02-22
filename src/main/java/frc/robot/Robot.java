@@ -49,6 +49,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    SmartDashboard.putNumber("Arm Encoder Distance", arm.armEncoder.getDistance());
   }
 
   /**

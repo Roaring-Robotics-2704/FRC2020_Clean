@@ -47,9 +47,13 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
+  private Button ArmUpButton = new JoystickButton(joystick, 9);
+  private Button ArmDownButton = new JoystickButton(joystick, 11);
   
   public OI(){
-    Button ArmUpButton = new JoystickButton(joystick, 9);
-    Button ArmDownButton = new JoystickButton(joystick, 11);
+    ArmUpButton.whileHeld(new UpArm());
+    ArmUpButton.whenReleased(new UpArmStop());
+    ArmDownButton.whileHeld(new DownArm());
+    ArmDownButton.whenReleased(new DownArmStop());
   }  
 }

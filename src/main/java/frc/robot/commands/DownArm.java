@@ -10,7 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 //import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.Robot;
-//import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Command;
 
 public class DownArm extends Command {
   public DownArm() {
@@ -28,12 +28,13 @@ public class DownArm extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+      Robot.arm.liftMotor.set(-0.3);
     }
   
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-      return false;
+      return true;
     }
   
     // Called once after isFinished returns true
