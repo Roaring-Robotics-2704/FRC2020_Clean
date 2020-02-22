@@ -12,10 +12,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.commands.DriveRobot;
-//import frc.robot.commands.RakeUp;
-//import frc.robot.commands.RakeDown;
+import frc.robot.subsystems.*;
+import frc.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,7 +24,10 @@ import frc.robot.commands.DriveRobot;
  */
 public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
+  public static Arm arm = new Arm();
+  public static DriveAcrossLine driveAcrossLine = new DriveAcrossLine();
   public static OI oi;
+  public static Camera camera;
 
   Command autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -38,8 +39,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    chooser.addDefault("Default Auto", new DriveRobot());
-
+    camera = new Camera();
+    //chooser.addDefault("Default Auto", new DriveAcrossLine());
   }
 
   /**
@@ -52,6 +53,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    SmartDashboard.putNumber("Drive Train Encoder Distance", driveTrain.driveEncoder.getDistance());
+    SmartDashboard.putNumber("Arm Encoder Distance", arm.armEncoder.getDistance());
   }
 
   /**

@@ -10,14 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-/**
- * ARCADE DRIVE COMMAND
- * 
- * A basic arcade drive command.
- */
-public class DriveRobot extends Command {
-  public DriveRobot() {
-    requires(Robot.driveTrain);
+public class BrakeOff extends Command {
+  public BrakeOff() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.arm);
   }
 
   // Called just before this Command runs the first time
@@ -28,27 +25,13 @@ public class DriveRobot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double joystickMovementSpeed = Robot.oi.joystick.getX()*.5;
-    double joystickStrafeSpeed = Robot.oi.joystick.getY()*.5;
-    double joystickTurnSpeed = Robot.oi.joystick.getZ()*.5;
-    double deadzone = 0.2;
-    double turnDeadzone = 0.25;
-    if (Math.abs(Robot.oi.joystick.getX()) < deadzone) {
-      joystickMovementSpeed = 0;
-    }
-    if (Math.abs(Robot.oi.joystick.getY()) < deadzone) {
-      joystickStrafeSpeed = 0;
-    }
-    if (Math.abs(Robot.oi.joystick.getZ()) < turnDeadzone) {
-      joystickTurnSpeed = 0;
-    }
-    Robot.driveTrain.moveMecanumDrive(joystickStrafeSpeed, joystickMovementSpeed, joystickTurnSpeed);
+    Robot.arm.brakeServo.setAngle(0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
