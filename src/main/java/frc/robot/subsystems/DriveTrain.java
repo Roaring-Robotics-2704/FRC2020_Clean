@@ -48,9 +48,9 @@ public class DriveTrain extends Subsystem {
   public DriveTrain() {
     //The distance per pulse used here is for the am-3749 encoder.
     rightTalonEncoder.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-    rightTalonEncoder.setSelectedSensorPosition(0);
+    rightTalonEncoder.setSelectedSensorPosition(0, 0, 10);
     leftTalonEncoder.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-    leftTalonEncoder.setSelectedSensorPosition(0);
+    leftTalonEncoder.setSelectedSensorPosition(0, 0, 10);
   }
 
 
