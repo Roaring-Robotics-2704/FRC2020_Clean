@@ -31,10 +31,10 @@ public class TurnColorWheel extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (Robot.oi.colorWheelButton.get() == false) {
-      return true;
-    } else {
+    if (Robot.oi.colorWheelButton.get()) {
       return false;
+    } else {
+      return true;
     }
   }
 
