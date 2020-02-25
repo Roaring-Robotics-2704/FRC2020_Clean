@@ -49,11 +49,13 @@ public class DriveTrain extends Subsystem {
     //The distance per pulse used here is for the am-3749 encoder.
     rightTalonEncoder.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
     rightTalonEncoder.setSelectedSensorPosition(0);
+    leftTalonEncoder.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+    leftTalonEncoder.setSelectedSensorPosition(0);
   }
 
 
   public void moveMecanumDrive(double movementSpeed, double strafeSpeed, double turningSpeed) {
-    mecanumDrive.driveCartesian(-strafeSpeed, movementSpeed, turningSpeed);
+    mecanumDrive.driveCartesian(strafeSpeed, movementSpeed, turningSpeed);
   }
 
   public void driveToPoint(String direction, double distance, double speed) {
@@ -62,14 +64,14 @@ public class DriveTrain extends Subsystem {
       //The left and right speed values may be incorrect
       case "forward":
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
-          moveMecanumDrive(speed, 0, 0);
+          moveMecanumDrive(-speed, 0, 0);
         }
         rightTalonEncoder.setSelectedSensorPosition(0);
         break;
 
       case "backward":
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
-          moveMecanumDrive(-speed, 0, 0);
+          moveMecanumDrive(speed, 0, 0);
         }
         rightTalonEncoder.setSelectedSensorPosition(0);
         break;
