@@ -36,5 +36,5 @@ public class RobotMap {
   
   //PWM
   public static int liftMotor = 6;
-
+  public static int brakeServo = 0;
 }
