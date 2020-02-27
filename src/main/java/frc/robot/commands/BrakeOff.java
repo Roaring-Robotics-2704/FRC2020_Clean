@@ -25,7 +25,7 @@ public class BrakeOff extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.brakeServo.setAngle(0);
+    Robot.arm.brakeServo.setAngle(180);
   }
 
   // Make this return true when this Command no longer needs to run execute()

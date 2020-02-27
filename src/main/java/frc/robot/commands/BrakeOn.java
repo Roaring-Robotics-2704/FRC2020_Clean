@@ -28,7 +28,7 @@ public class BrakeOn extends Command {
   @Override
   protected void execute() {
     if (Robot.arm.liftMotor.get() == 0) {
-      Robot.arm.brakeServo.setAngle(180);
+      Robot.arm.brakeServo.setAngle(0);
     } else {
       DriverStation.reportWarning("You can not engage the break while you are moving the lift!", false);
     }

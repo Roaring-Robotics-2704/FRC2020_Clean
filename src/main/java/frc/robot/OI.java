@@ -49,11 +49,15 @@ public class OI {
   public Joystick joystick = new Joystick(0);
   private Button ArmUpButton = new JoystickButton(joystick, 9);
   private Button ArmDownButton = new JoystickButton(joystick, 11);
+  private Button BrakeOnButton = new JoystickButton(joystick, 10);
+  private Button BrakeOffButton = new JoystickButton(joystick, 12);
   
   public OI(){
     ArmUpButton.whileHeld(new UpArm());
     ArmUpButton.whenReleased(new UpArmStop());
     ArmDownButton.whileHeld(new DownArm());
     ArmDownButton.whenReleased(new DownArmStop());
+    BrakeOnButton.whenPressed(new BrakeOn());
+    BrakeOffButton.whenPressed(new BrakeOff());
   }  
 }

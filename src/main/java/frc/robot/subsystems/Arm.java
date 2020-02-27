@@ -22,7 +22,7 @@ public class Arm extends Subsystem {
   public Servo brakeServo = new Servo(RobotMap.brakeServo);
   
   public Arm() {
-    brakeServo.setAngle(0);
+    brakeServo.setAngle(180);
   }
 
   @Override
