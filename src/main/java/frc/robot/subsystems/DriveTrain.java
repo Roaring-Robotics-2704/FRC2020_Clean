@@ -48,9 +48,9 @@ public class DriveTrain extends Subsystem {
   public DriveTrain() {
     //The distance per pulse used here is for the am-3749 encoder.
     rightTalonEncoder.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-    rightTalonEncoder.setSelectedSensorPosition(0, 0, 10);
+    rightTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
     leftTalonEncoder.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-    leftTalonEncoder.setSelectedSensorPosition(0, 0, 10);
+    leftTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
   }
 
 
@@ -59,35 +59,32 @@ public class DriveTrain extends Subsystem {
   }
 
   public void driveToPoint(String direction, double distance, double speed) {
-    rightTalonEncoder.setSelectedSensorPosition(0);
+    rightTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
     switch (direction) {
       //The left and right speed values may be incorrect
       case "forward":
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(-speed, 0, 0);
+          rightTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
         }
-        rightTalonEncoder.setSelectedSensorPosition(0);
         break;
 
       case "backward":
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(speed, 0, 0);
         }
-        rightTalonEncoder.setSelectedSensorPosition(0);
         break;
 
       case "left":
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(0, speed, 0);
         }
-        rightTalonEncoder.setSelectedSensorPosition(0);
         break;
 
       case "right":
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(0, -speed, 0);
         }
-        rightTalonEncoder.setSelectedSensorPosition(0);
         break;
 
       default:
