@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.*;
 
 /**
@@ -18,7 +18,7 @@ import frc.robot.*;
  * Thats all it does.
  */
 public class ColorWheel extends Subsystem {
-  public WPI_TalonSRX colorWheelMotor = new WPI_TalonSRX(RobotMap.colorWheelMotor);
+  public WPI_VictorSPX colorWheelMotor = new WPI_VictorSPX(RobotMap.colorWheelMotor);
 
   @Override
   public void initDefaultCommand() {
