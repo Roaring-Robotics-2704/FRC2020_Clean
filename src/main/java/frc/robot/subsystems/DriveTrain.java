@@ -65,7 +65,6 @@ public class DriveTrain extends Subsystem {
       case "forward":
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(-speed, 0, 0);
-          rightTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
         }
         break;
 
@@ -91,6 +90,7 @@ public class DriveTrain extends Subsystem {
         DriverStation.reportError("That is not a valid direction! Use 'forward', 'backward', 'left', or 'right'.", true);
         break;
     }
+    rightTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
   }
   //This (probably) doesn't work
   public void turnRobot(String direction, double angle, double speed) {
