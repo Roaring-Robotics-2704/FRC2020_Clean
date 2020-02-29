@@ -8,7 +8,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton; 
+import frc.robot.commands.*;
 
 //import frc.robot.commands.*;
 
@@ -46,8 +48,11 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
-  
+  private Button CameraServoUpButton = new JoystickButton(joystick, 5);
+  private Button CameraServoDownButton = new JoystickButton(joystick, 3);
   
   public OI(){
+    CameraServoUpButton.whileHeld(new CameraServoUp());
+    CameraServoDownButton.whileHeld(new CameraServoDown());
   } 
 }

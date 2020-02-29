@@ -26,6 +26,7 @@ public class Robot extends TimedRobot {
   
   public static OI oi;
   public static Camera camera;
+  public static CameraServo moveCameraServo;
 
   Command autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -38,6 +39,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     oi = new OI();
     camera = new Camera();
+    moveCameraServo = new CameraServo();
     //chooser.addDefault("Default Auto", new DriveAcrossLine());
   }
 
