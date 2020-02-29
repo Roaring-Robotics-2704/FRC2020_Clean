@@ -18,13 +18,17 @@ public class Arm extends Subsystem {
   
   public Encoder armEncoder = new Encoder(RobotMap.armEncoderPorts[0], RobotMap.armEncoderPorts[1], false, Encoder.EncodingType.k4X);
   public WPI_VictorSPX liftMotor = new WPI_VictorSPX(RobotMap.liftMotor);
+  public static double spoolDiameter = RobotMap.spoolDiameter;
 
   public Servo brakeServo = new Servo(RobotMap.brakeServo);
   
   public Arm() {
+    //The distance per pulse for the REV-11-1271 encoder = 2048
+    armEncoder.setDistancePerPulse(spoolDiameter*3.14/2048);
     brakeServo.setAngle(180);
+    armEncoder.reset();
   }
-
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

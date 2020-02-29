@@ -24,6 +24,10 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   
+  public static double spoolDiameter = 1.97/12.0;
+  //Need to test, 0 is not the real value
+  public static double armUpperLimit = 250;
+
   //CAN
   public static int rightFrontMotor = 4;
   public static int rightBackMotor = 1;

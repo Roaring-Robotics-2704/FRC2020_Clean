@@ -30,7 +30,7 @@ public class BrakeOn extends Command {
     if (Robot.arm.liftMotor.get() == 0) {
       Robot.arm.brakeServo.setAngle(0);
     } else {
-      DriverStation.reportWarning("You can not engage the break while you are moving the lift!", false);
+      DriverStation.reportWarning("You can not engage the break while you are moving the lift", false);
     }
   }
 
