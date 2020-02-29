@@ -13,7 +13,7 @@ public class CameraServoDown extends Command {
   public CameraServoDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.moveCameraServo);
+    requires(Robot.cameraServo);
   }
 
   // Called just before this Command runs the first time
@@ -24,7 +24,7 @@ public class CameraServoDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.moveCameraServo.cameraServo.setAngle(0);
+    Robot.cameraServo.cameraServo.setAngle(90);
   }
 
   // Make this return true when this Command no longer needs to run execute()
