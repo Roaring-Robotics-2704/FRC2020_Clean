@@ -15,7 +15,6 @@ import frc.robot.*;
 public class TurnColorWheel extends Command {
   public TurnColorWheel() {
     requires(Robot.colorWheel);
-    Robot.colorWheel.colorWheelMotor.set(ControlMode.PercentOutput, 0.4);
   }
 
   // Called just before this Command runs the first time
@@ -26,6 +25,7 @@ public class TurnColorWheel extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.colorWheel.colorWheelMotor.set(ControlMode.PercentOutput, 0.4);
   }
 
   // Make this return true when this Command no longer needs to run execute()
