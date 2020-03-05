@@ -23,8 +23,6 @@ public class Arm extends Subsystem {
   public Servo brakeServo = new Servo(RobotMap.brakeServo);
   
   public Arm() {
-    //The distance per pulse for the REV-11-1271 encoder = 2048
-    armEncoder.setDistancePerPulse(spoolDiameter*3.14/2048);
     brakeServo.setAngle(180);
     armEncoder.reset();
   }
