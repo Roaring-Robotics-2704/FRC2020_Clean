@@ -55,8 +55,10 @@ public class OI {
   public OI(){
     ArmUpButton.whileHeld(new UpArm());
     ArmUpButton.whenReleased(new UpArmStop());
+
     ArmDownButton.whileHeld(new DownArm());
     ArmDownButton.whenReleased(new DownArmStop());
+    
     BrakeOnButton.whenPressed(new BrakeOn());
     BrakeOffButton.whenPressed(new BrakeOff());
   }  
