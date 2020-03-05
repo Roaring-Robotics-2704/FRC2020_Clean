@@ -47,17 +47,17 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
-  private Button ArmUpButton = new JoystickButton(joystick, 9);
-  private Button ArmDownButton = new JoystickButton(joystick, 11);
+  
+  public Button ArmUpButton = new JoystickButton(joystick, 9);
+  public Button ArmDownButton = new JoystickButton(joystick, 11);
+
   private Button BrakeOnButton = new JoystickButton(joystick, 10);
   private Button BrakeOffButton = new JoystickButton(joystick, 12);
   
   public OI(){
-    ArmUpButton.whileHeld(new UpArm());
-    ArmUpButton.whenReleased(new UpArmStop());
+    ArmUpButton.whenPressed(new UpArm());
 
-    ArmDownButton.whileHeld(new DownArm());
-    ArmDownButton.whenReleased(new DownArmStop());
+    ArmDownButton.whenPressed(new DownArm());
     
     BrakeOnButton.whenPressed(new BrakeOn());
     BrakeOffButton.whenPressed(new BrakeOff());
