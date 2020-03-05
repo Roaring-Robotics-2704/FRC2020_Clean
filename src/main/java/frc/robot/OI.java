@@ -51,6 +51,6 @@ public class OI {
   public Button colorWheelButton = new JoystickButton(joystick, 7);
   
   public OI(){
-    colorWheelButton.whileHeld(new TurnColorWheel());
+    colorWheelButton.whenPressed(new TurnColorWheel());
   }  
 }
