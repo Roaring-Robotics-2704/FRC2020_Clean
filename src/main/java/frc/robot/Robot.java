@@ -58,7 +58,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     SmartDashboard.putNumber("Camera Angle", cameraServo.cameraServo.getAngle());
     SmartDashboard.putNumber("Arm Encoder Distance", Math.abs(arm.armEncoder.getDistance()));
-    isBrakeOn = arm.brakeServo.get() < 90 ? true : false;
+    isBrakeOn = arm.brakeServo.get() > 90 ? true : false;
     SmartDashboard.putBoolean("Brake Position", isBrakeOn);
   }
 
