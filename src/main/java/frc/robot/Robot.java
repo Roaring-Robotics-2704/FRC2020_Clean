@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
-import frc.robot.commands.*;
+//import frc.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +25,9 @@ import frc.robot.commands.*;
 public class Robot extends TimedRobot {
   public static OI oi;
   public static ColorWheel colorWheel = new ColorWheel();
+  public static Arm arm = new Arm();
+  public static Camera camera = new Camera();
+  public static DriveTrain driveTrain = new DriveTrain();
 
   Command autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -49,6 +52,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    SmartDashboard.putNumber("Arm Encoder Distance", Math.abs(arm.armEncoder.getDistance()));
   }
 
   /**
