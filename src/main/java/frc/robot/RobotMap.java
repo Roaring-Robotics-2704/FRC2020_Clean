@@ -40,7 +40,7 @@ public class RobotMap {
   public static int[] armEncoderPorts = {0, 1};
   
   //PWM
-  public static int liftMotor = 5;
-  public static int brakeServo = 6;
+  public static int liftMotor = 6;
+  public static int brakeServo = 0;
   public static int cameraServo = 1;
 }
