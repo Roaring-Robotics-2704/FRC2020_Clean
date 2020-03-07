@@ -45,7 +45,6 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
- 
   public Button ArmUpButton = new JoystickButton(joystick, 9);
   public Button ArmDownButton = new JoystickButton(joystick, 11);
 
@@ -54,6 +53,9 @@ public class OI {
   
   public Button wheelClockwise = new JoystickButton(joystick, 1);
   public Button wheelCounterClockwise = new JoystickButton(joystick, 2);
+  
+  private Button CameraServoUpButton = new JoystickButton(joystick, 5);
+  private Button CameraServoDownButton = new JoystickButton(joystick, 3);
   
   public OI(){
     ArmUpButton.whenPressed(new UpArm());
@@ -65,5 +67,8 @@ public class OI {
     
     wheelClockwise.whenPressed(new TurnColorWheelClockwise());
     wheelCounterClockwise.whenPressed(new TurnColorWheelCounterClockwise());
+    
+    CameraServoUpButton.whenPressed(new CameraServoUp());
+    CameraServoDownButton.whenPressed(new CameraServoDown());
   }  
 }
