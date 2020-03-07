@@ -47,7 +47,7 @@ public class DriveTrain extends Subsystem {
 
 
   public void moveMecanumDrive(double movementSpeed, double strafeSpeed, double turningSpeed) {
-    mecanumDrive.driveCartesian(strafeSpeed, movementSpeed, turningSpeed);
+    mecanumDrive.driveCartesian(-strafeSpeed, movementSpeed, turningSpeed);
   }
 
   @Override
