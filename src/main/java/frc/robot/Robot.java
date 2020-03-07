@@ -25,7 +25,7 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
   public static OI oi;
   public static Arm arm = new Arm();
-  public static Camera camera;
+  public static Camera camera = new Camera();
   public static DriveTrain driveTrain = new DriveTrain();
 
   Command autonomousCommand;
