@@ -25,7 +25,11 @@ public class BrakeOff extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.arm.liftMotor.set(0.5);
+    if (Robot.arm.armEncoder.getDistance() + 200 > Robot.arm.armEncoder.getDistance() + 100)
     Robot.arm.brakeServo.setAngle(180);
+    Robot.arm.liftMotor.set(0);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
