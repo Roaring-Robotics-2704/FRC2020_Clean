@@ -13,6 +13,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DriverStation;
 import com.analog.adis16470.frc.ADIS16470_IMU;
 
@@ -30,6 +31,9 @@ public class DriveTrain extends Subsystem {
   // here. Call these from Commands.
 
   private static final Double wheelDiameter = 6.0/12.0;
+
+  //Create timer object
+  public Timer timer = new Timer();
 
   //Create IMU object
   public ADIS16470_IMU imu = new ADIS16470_IMU();
@@ -88,7 +92,7 @@ public class DriveTrain extends Subsystem {
         break;
 
       default:
-        DriverStation.reportError("That is not a valid direction! Use 'forward', 'backward', 'left', or 'right'.", true);
+        DriverStation.reportError("That is not a valid direction! Use forward, backward, left, or right.", true);
         break;
     }
   }
@@ -109,9 +113,43 @@ public class DriveTrain extends Subsystem {
         break;
 
       default:
-        DriverStation.reportError("That is not a valid direction! Use left', or 'right'.", true);
+        DriverStation.reportError("That is not a valid direction! Use left, or right.", true);
         break;
     }
+  }
+
+  public void driveUntilTime(Direction direction, double time, double speed) {
+    timer.reset();
+    timer.start();
+    switch (direction) {
+      case forward:
+        while (timer.get() <= time) {
+          moveMecanumDrive(-speed, 0, 0);
+        }
+        break;
+
+      case backward:
+        while (timer.get() <= time) {
+          moveMecanumDrive(speed, 0, 0);
+        }
+        break;
+
+      case left:
+        while (timer.get() <= time) {
+          moveMecanumDrive(0, speed, 0);
+        }
+        break;
+
+      case right:
+        while (timer.get() <= time) {
+          moveMecanumDrive(0, -speed, 0);
+        }
+        break;
+      default:
+        DriverStation.reportError("That is not a valid direction! Use forward, backward, left, or right.", true);
+        break;
+    }
+    timer.stop();
   }
 
   @Override
