@@ -29,6 +29,8 @@ public class Robot extends TimedRobot {
   public static Camera camera = new Camera();
   public static DriveTrain driveTrain = new DriveTrain();
 
+  private boolean isBrakeOn;
+
   Command autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -53,6 +55,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     SmartDashboard.putNumber("Arm Encoder Distance", Math.abs(arm.armEncoder.getDistance()));
+    isBrakeOn = arm.brakeServo.get() > 90 ? true : false;
+    SmartDashboard.putBoolean("Brake Is On", isBrakeOn);
   }
 
   /**
