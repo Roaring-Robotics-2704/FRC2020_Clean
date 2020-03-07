@@ -48,9 +48,11 @@ public class OI {
 
   public Joystick joystick = new Joystick(0);
 
-  public Button colorWheelButton = new JoystickButton(joystick, 7);
-  
+  public Button wheelClockwise = new JoystickButton(joystick, 1);
+  public Button wheelCounterClockwise = new JoystickButton(joystick, 2);
+
   public OI(){
-    colorWheelButton.whenPressed(new TurnColorWheel());
+    wheelClockwise.whenPressed(new TurnColorWheelClockwise());
+    wheelCounterClockwise.whenPressed(new TurnColorWheelCounterClockwise());
   }  
 }

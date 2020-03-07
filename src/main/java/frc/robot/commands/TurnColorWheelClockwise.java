@@ -12,8 +12,8 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.*;
 
-public class TurnColorWheel extends Command {
-  public TurnColorWheel() {
+public class TurnColorWheelClockwise extends Command {
+  public TurnColorWheelClockwise() {
     requires(Robot.colorWheel);
   }
 
@@ -31,7 +31,7 @@ public class TurnColorWheel extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return !Robot.oi.colorWheelButton.get();
+    return !Robot.oi.wheelClockwise.get();
   }
 
   // Called once after isFinished returns true
