@@ -29,9 +29,9 @@ public class DownArm extends Command {
     @Override
     protected void execute() {
       if (Math.abs(Robot.arm.armEncoder.getDistance()) > 5000) {
-        Robot.arm.liftMotor.set(-0.5);
+        Robot.arm.liftMotor.set(-0.9);
       } else {
-        Robot.arm.liftMotor.set(-0.2);
+        Robot.arm.liftMotor.set(-0.4);
       }
     }
   
