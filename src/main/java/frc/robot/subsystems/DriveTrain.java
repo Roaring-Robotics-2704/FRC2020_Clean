@@ -18,6 +18,7 @@ import com.analog.adis16470.frc.ADIS16470_IMU;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveRobot;
+import frc.robot.Direction;
 
 /**
  * DRIVE TRAIN
@@ -58,29 +59,29 @@ public class DriveTrain extends Subsystem {
     mecanumDrive.driveCartesian(strafeSpeed, movementSpeed, turningSpeed);
   }
 
-  public void driveToPoint(String direction, double distance, double speed) {
+  public void driveToPoint(Direction direction, double distance, double speed) {
     rightTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
     switch (direction) {
       //The left and right speed values may be incorrect
-      case "forward":
+      case forward:
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(-speed, 0, 0);
         }
         break;
 
-      case "backward":
+      case backward:
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(speed, 0, 0);
         }
         break;
 
-      case "left":
+      case left:
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(0, speed, 0);
         }
         break;
 
-      case "right":
+      case right:
         while (Math.abs(rightTalonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(0, -speed, 0);
         }
@@ -90,19 +91,18 @@ public class DriveTrain extends Subsystem {
         DriverStation.reportError("That is not a valid direction! Use 'forward', 'backward', 'left', or 'right'.", true);
         break;
     }
-    rightTalonEncoder.getSensorCollection().setQuadraturePosition(0, 10);
   }
   //This (probably) doesn't work
-  public void turnRobot(String direction, double angle, double speed) {
+  public void turnRobot(Direction direction, double angle, double speed) {
     imu.reset();
     switch (direction) {
-      case "left":
+      case left:
           while (angle < imu.getAngle()) {
             moveMecanumDrive(0, 0, speed);
           }
         break;
 
-      case "right":
+      case right:
         while (angle < imu.getAngle()) {
           moveMecanumDrive(0, 0, -speed);
         }
@@ -113,7 +113,6 @@ public class DriveTrain extends Subsystem {
         break;
     }
   }
-
 
   @Override
   public void initDefaultCommand() {
