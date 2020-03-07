@@ -24,6 +24,7 @@ import frc.robot.subsystems.*;
  */
 public class Robot extends TimedRobot {
   public static OI oi;
+  public static ColorWheel colorWheel = new ColorWheel();
   public static Arm arm = new Arm();
   public static Camera camera = new Camera();
   public static DriveTrain driveTrain = new DriveTrain();

@@ -52,6 +52,9 @@ public class OI {
   private Button BrakeOnButton = new JoystickButton(joystick, 10);
   private Button BrakeOffButton = new JoystickButton(joystick, 12);
   
+  public Button wheelClockwise = new JoystickButton(joystick, 1);
+  public Button wheelCounterClockwise = new JoystickButton(joystick, 2);
+  
   public OI(){
     ArmUpButton.whenPressed(new UpArm());
 
@@ -59,5 +62,8 @@ public class OI {
     
     BrakeOnButton.whenPressed(new BrakeOn());
     BrakeOffButton.whenPressed(new BrakeOff());
+    
+    wheelClockwise.whenPressed(new TurnColorWheelClockwise());
+    wheelCounterClockwise.whenPressed(new TurnColorWheelCounterClockwise());
   }  
 }

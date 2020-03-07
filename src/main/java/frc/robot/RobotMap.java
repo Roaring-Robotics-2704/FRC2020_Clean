@@ -33,6 +33,7 @@ public class RobotMap {
   public static int rightBackMotor = 1;
   public static int leftFrontMotor = 3;
   public static int leftBackMotor = 2;
+  public static int colorWheelMotor = 5;
   
   //DIO
   public static int[] driveEncoderPorts = {2, 3};
