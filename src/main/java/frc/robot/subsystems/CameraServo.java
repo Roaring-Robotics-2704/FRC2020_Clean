@@ -19,11 +19,41 @@ public class CameraServo extends Subsystem {
   // here. Call these from Commands.
   
   public Servo cameraServo = new Servo(RobotMap.cameraServo);
+  public int stage = 1;
 
   public CameraServo() {
     cameraServo.setAngle(0);
   }
 
+  public void changeStage(){
+    switch(stage){
+      
+      case 1: 
+      cameraServo.setAngle(0);
+      System.out.println("case 1");
+      break;
+      
+      case 2:
+      cameraServo.setAngle(70);
+      System.out.println("case 2");
+      break;
+      
+      case 3:
+      cameraServo.setAngle(100);
+      System.out.println("case 3");
+      break;
+     
+      default: 
+      if (stage > 3){
+      stage = 3;
+      }
+      if (stage < 0){
+      stage = 0;
+      }
+      break;
+
+    }
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

@@ -24,13 +24,14 @@ public class CameraServoDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.cameraServo.cameraServo.setAngle(90);
+    Robot.cameraServo.stage--;
+    Robot.cameraServo.changeStage();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

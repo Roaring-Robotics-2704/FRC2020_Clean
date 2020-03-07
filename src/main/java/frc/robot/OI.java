@@ -52,7 +52,7 @@ public class OI {
   private Button CameraServoDownButton = new JoystickButton(joystick, 3);
   
   public OI(){
-    CameraServoUpButton.whileHeld(new CameraServoUp());
-    CameraServoDownButton.whileHeld(new CameraServoDown());
+    CameraServoUpButton.whenPressed(new CameraServoUp());
+    CameraServoDownButton.whenPressed(new CameraServoDown());
   } 
 }

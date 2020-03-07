@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Servo;
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
 
@@ -52,7 +53,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    
+    SmartDashboard.putNumber("Camera Angle", cameraServo.cameraServo.getAngle());
   }
 
   /**
