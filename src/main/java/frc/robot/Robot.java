@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 //import frc.robot.commands.*;
 
@@ -25,7 +25,9 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
   public static OI oi;
   public static Arm arm = new Arm();
-  
+  public static Camera camera;
+  public static DriveTrain driveTrain = new DriveTrain();
+
   Command autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
 
