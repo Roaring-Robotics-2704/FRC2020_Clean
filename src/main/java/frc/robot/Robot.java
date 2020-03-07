@@ -23,8 +23,8 @@ import frc.robot.subsystems.*;
  * project.
  */
 public class Robot extends TimedRobot {
-  
   public static OI oi;
+  public static Arm arm = new Arm();
   public static Camera camera;
   public static DriveTrain driveTrain = new DriveTrain();
 
@@ -38,7 +38,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    camera = new Camera();
     //chooser.addDefault("Default Auto", new DriveAcrossLine());
   }
 
@@ -52,8 +51,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    
-  }
+    SmartDashboard.putNumber("Arm Encoder Distance", Math.abs(arm.armEncoder.getDistance()));
 
   /**
    * This function is called once each time the robot enters Disabled mode.
