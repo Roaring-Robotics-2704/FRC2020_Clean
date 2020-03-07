@@ -8,10 +8,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import frc.robot.commands.*;
+
+//import frc.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -47,7 +46,7 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
-  
+ 
   public Button ArmUpButton = new JoystickButton(joystick, 9);
   public Button ArmDownButton = new JoystickButton(joystick, 11);
 
@@ -62,4 +61,3 @@ public class OI {
     BrakeOnButton.whenPressed(new BrakeOn());
     BrakeOffButton.whenPressed(new BrakeOff());
   }  
-}
