@@ -8,9 +8,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-
-
-//import frc.robot.commands.*;
+import edu.wpi.first.wpilibj.buttons.*;
+import frc.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -46,8 +45,30 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
+  public Button ArmUpButton = new JoystickButton(joystick, 9);
+  public Button ArmDownButton = new JoystickButton(joystick, 11);
+
+  private Button BrakeOnButton = new JoystickButton(joystick, 10);
+  private Button BrakeOffButton = new JoystickButton(joystick, 12);
   
+  public Button wheelClockwise = new JoystickButton(joystick, 1);
+  public Button wheelCounterClockwise = new JoystickButton(joystick, 2);
+  
+  private Button CameraServoUpButton = new JoystickButton(joystick, 5);
+  private Button CameraServoDownButton = new JoystickButton(joystick, 3);
   
   public OI(){
-  } 
+    ArmUpButton.whenPressed(new UpArm());
+
+    ArmDownButton.whenPressed(new DownArm());
+    
+    BrakeOnButton.whenPressed(new BrakeOn());
+    BrakeOffButton.whenPressed(new BrakeOff());
+    
+    wheelClockwise.whenPressed(new TurnColorWheelClockwise());
+    wheelCounterClockwise.whenPressed(new TurnColorWheelCounterClockwise());
+    
+    CameraServoUpButton.whenPressed(new CameraServoUp());
+    CameraServoDownButton.whenPressed(new CameraServoDown());
+  }  
 }

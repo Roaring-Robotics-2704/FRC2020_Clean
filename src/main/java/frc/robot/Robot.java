@@ -12,8 +12,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Servo;
 import frc.robot.subsystems.*;
-//import frc.robot.commands.*;
+import frc.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,9 +24,14 @@ import frc.robot.subsystems.*;
  * project.
  */
 public class Robot extends TimedRobot {
-  
   public static OI oi;
-  public static Camera camera;
+  public static CameraServo cameraServo = new CameraServo();
+  public static ColorWheel colorWheel = new ColorWheel();
+  public static Arm arm = new Arm();
+  public static Camera camera = new Camera();
+  public static DriveTrain driveTrain = new DriveTrain();
+
+  private boolean isBrakeOn;
 
   Command autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -37,7 +43,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    camera = new Camera();
     //chooser.addDefault("Default Auto", new DriveAcrossLine());
   }
 
@@ -51,7 +56,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    
+    SmartDashboard.putNumber("Camera Angle", cameraServo.cameraServo.getAngle());
+    SmartDashboard.putNumber("Arm Encoder Distance", Math.abs(arm.armEncoder.getDistance()));
+    isBrakeOn = arm.brakeServo.get() > 90 ? true : false;
+    SmartDashboard.putBoolean("Brake Position", isBrakeOn);
   }
 
   /**
