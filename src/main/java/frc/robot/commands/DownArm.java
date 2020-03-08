@@ -8,9 +8,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-//import com.ctre.phoenix.motorcontrol.ControlMode;
+import frc.robot.RobotMap;
 import frc.robot.Robot;
-import edu.wpi.first.wpilibj.command.Command;
 
 public class DownArm extends Command {
   public DownArm() {
@@ -28,10 +27,10 @@ public class DownArm extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-      if (Math.abs(Robot.arm.armEncoder.getDistance()) > 2000) {
-        Robot.arm.liftMotor.set(-0.9);
+      if (Math.abs(Robot.arm.armEncoder.getDistance()) > RobotMap.encoderLowerLimit) {
+        Robot.arm.liftMotor.set(RobotMap.downArmSpeedAboveLowerLimit);
       } else {
-        Robot.arm.liftMotor.set(-0.4);
+        Robot.arm.liftMotor.set(RobotMap.downArmSpeedBelowLowerLimit);
       }
     }
   

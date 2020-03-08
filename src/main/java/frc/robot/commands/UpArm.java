@@ -26,7 +26,7 @@ public class UpArm extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.liftMotor.set(0.5);
+    Robot.arm.liftMotor.set(RobotMap.upArmSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

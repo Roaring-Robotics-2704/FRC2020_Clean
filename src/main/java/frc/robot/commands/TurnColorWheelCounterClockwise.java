@@ -9,7 +9,9 @@ package frc.robot.commands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.RobotMap;
 import frc.robot.*;
+
 
 public class TurnColorWheelCounterClockwise extends Command {
   public TurnColorWheelCounterClockwise() {
@@ -24,7 +26,7 @@ public class TurnColorWheelCounterClockwise extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.colorWheel.colorWheelMotor.set(ControlMode.PercentOutput, -0.75);
+    Robot.colorWheel.colorWheelMotor.set(ControlMode.PercentOutput, RobotMap.counterClockwiseSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

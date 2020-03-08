@@ -29,18 +29,18 @@ public class CameraServo extends Subsystem {
     switch(stage){
       
       case 1: 
-      cameraServo.setAngle(0);
-      System.out.println("case 1");
+      cameraServo.setAngle(RobotMap.stage1Angle);
+      //System.out.println("case 1");
       break;
       
       case 2:
-      cameraServo.setAngle(70);
-      System.out.println("case 2");
+      cameraServo.setAngle(RobotMap.stage2Angle);
+      //System.out.println("case 2");
       break;
       
       case 3:
-      cameraServo.setAngle(100);
-      System.out.println("case 3");
+      cameraServo.setAngle(RobotMap.stage3Angle);
+      //System.out.println("case 3");
       break;
      
       default: 

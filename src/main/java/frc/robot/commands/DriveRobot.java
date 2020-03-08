@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 /**
  * ARCADE DRIVE COMMAND
@@ -28,11 +29,12 @@ public class DriveRobot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double joystickMovementSpeed = Robot.oi.joystick.getX()*.5;
-    double joystickStrafeSpeed = Robot.oi.joystick.getY()*.5;
-    double joystickTurnSpeed = Robot.oi.joystick.getZ()*.5;
-    double deadzone = 0.2;
-    double turnDeadzone = 0.25;
+    double joystickMovementSpeed = Robot.oi.joystick.getX()*RobotMap.movementSpeed;
+    double joystickStrafeSpeed = Robot.oi.joystick.getY()*RobotMap.strafeSpeed;
+    double joystickTurnSpeed = Robot.oi.joystick.getZ()*RobotMap.turnSpeed;
+    double deadzone = RobotMap.deadZone;
+    double turnDeadzone = RobotMap.turnDeadZone;
+    
     if (Math.abs(Robot.oi.joystick.getX()) < deadzone) {
       joystickMovementSpeed = 0;
     }

@@ -43,4 +43,28 @@ public class RobotMap {
   public static int liftMotor = 6;
   public static int brakeServo = 0;
   public static int cameraServo = 1;
+
+  //Drive Train
+  public static double movementSpeed = 0.5;
+  public static double strafeSpeed = 0.5;
+  public static double turnSpeed = 0.5;
+  public static double deadZone = 0.2;
+  public static double turnDeadZone = 0.25;
+
+  //Arm Commands
+  public static double upArmSpeed = 0.5;
+  public static int encoderLowerLimit = 2000;
+  public static double downArmSpeedAboveLowerLimit = -0.9;
+  public static double downArmSpeedBelowLowerLimit = -0.4;
+
+  //Camera Servo Subsystem
+  public static int stage1Angle = 0;
+  public static int stage2Angle = 70;
+  public static int stage3Angle = 100;
+
+  //Color Wheel Commands
+  public static double clockwiseSpeed = 0.75;
+  public static double counterClockwiseSpeed = -0.75;
+  
+  //Break
 }
