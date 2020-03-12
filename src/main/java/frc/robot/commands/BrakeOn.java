@@ -27,7 +27,7 @@ public class BrakeOn extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.arm.liftMotor.get() == 0) {
+    if (Robot.arm.armMotor.get() == 0) {
       Robot.arm.brakeServo.setAngle(0);
     } else {
       DriverStation.reportWarning("You can not engage the break while you are moving the lift", false);

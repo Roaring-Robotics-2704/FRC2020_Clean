@@ -17,7 +17,7 @@ import frc.robot.Robot;
 public class Arm extends Subsystem {
   
   public Encoder armEncoder = new Encoder(RobotMap.armEncoderPorts[0], RobotMap.armEncoderPorts[1], false, Encoder.EncodingType.k4X);
-  public WPI_VictorSPX liftMotor = new WPI_VictorSPX(RobotMap.liftMotor);
+  public WPI_VictorSPX armMotor = new WPI_VictorSPX(RobotMap.armMotor);
   public static double spoolDiameter = RobotMap.spoolDiameter;
 
   public Servo brakeServo = new Servo(RobotMap.brakeServo);

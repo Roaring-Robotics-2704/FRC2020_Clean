@@ -7,10 +7,18 @@
 
 package frc.robot.commands;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Encoder;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.Robot;
 
+
 public class BrakeOff extends Command {
+  Encoder armEncoder = Robot.arm.armEncoder;
+  WPI_VictorSPX armMotor = Robot.arm.armMotor;
+
+
   public BrakeOff() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -25,11 +33,10 @@ public class BrakeOff extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.liftMotor.set(0.5);
-    if (Robot.arm.armEncoder.getDistance() + 200 > Robot.arm.armEncoder.getDistance() + 100)
+    if (Robot.arm.armEncoder.getDistance() > 200) {
+      for (double target = armEncoder.getDistance() - 200; target == armEncoder.getDistance(); armMotor.set(ControlMode.PercentOutput, -0.5)) {}
+    }
     Robot.arm.brakeServo.setAngle(180);
-    Robot.arm.liftMotor.set(0);
-    
   }
 
   // Make this return true when this Command no longer needs to run execute()
